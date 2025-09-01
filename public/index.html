@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 채팅 서비스</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- 로그인 폼 -->
+        <div id="login-form" class="login-container">
+            <h2>채팅방 입장</h2>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="닉네임을 입력하세요" maxlength="20">
+                <button id="join-btn">입장하기</button>
+            </div>
+        </div>
+
+        <!-- 채팅 메인 화면 -->
+        <div id="chat-main" class="chat-main" style="display: none;">
+            <div class="chat-header">
+                <h3>채팅방</h3>
+                <div class="user-info">
+                    <span id="current-user"></span>
+                    <button id="leave-btn">나가기</button>
+                </div>
+            </div>
+
+            <div class="chat-content">
+                <!-- 사용자 목록 -->
+                <div class="users-panel">
+                    <h4>접속자 (<span id="user-count">0</span>)</h4>
+                    <div id="users-list"></div>
+                </div>
+
+                <!-- 채팅 영역 -->
+                <div class="chat-area">
+                    <div id="messages" class="messages"></div>
+                    <div id="typing-indicator" class="typing-indicator"></div>
+                    
+                    <div class="message-input">
+                        <input type="text" id="message-input" placeholder="메시지를 입력하세요..." maxlength="500">
+                        <button id="send-btn">전송</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
